@@ -101,14 +101,14 @@ $password=password_hash($password,PASSWORD_BCRYPT);
 
 // MySql query 
 
-$q="insert into sparsh_users(username,email,password,phone,gender) values('$username','$email','$password',$phoneNumber,'$gender')   ;";
+$q="insert into `sparsh_users`(`username`,`email`,`password`,`phone`,`gender`) values('$username','$email','$password',$phoneNumber,'$gender')   ;";
 $res=mysqli_query($conn,$q);
 
 // Redirection to another page based on query result
 if($res){
     header("Location: login.php");
 }else
-{
+{ 
     header("Location: signup.php");
     $_SESSION['hack']="Sorry something went wrong, please try again !!";
 }

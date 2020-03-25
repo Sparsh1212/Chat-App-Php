@@ -33,7 +33,7 @@ if($type=="image/jpeg"||$type=="image/png"||$type=="image/jpg")
         // Final Redirection if everything is successful
         if($res)
         {
-            header("Location: dashboard.php");
+           header("Location: dashboard.php");
         }
         
     }
