@@ -78,7 +78,8 @@ session_start();
      success:function(response)
      
      {  // Handling the response from server
-        if(response!='0')
+	console.log(response);    
+	     if(response!=0)
         { 
         $('#availability').html('<span class="text-danger font-weight-bold">Username not availiable</span>');
         $('#signup-btn').attr("disabled",true);

@@ -47,14 +47,14 @@ $row=mysqli_fetch_assoc($res);
 
 // Getting all users from database
 echo "<h1>Select User to Chat</h1>";
-$q="select username from sparsh_users";
-$res=mysqli_query($conn,$q);
-$row=mysqli_fetch_assoc($res);
-while($row=mysqli_fetch_assoc($res))
+$q1="select username from sparsh_users";
+$res1=mysqli_query($conn,$q1);
+//$row1=mysqli_fetch_assoc($res1);
+while($row1=mysqli_fetch_assoc($res1))
 {
  ?>   
-<input type="radio" name="to_user" id="<?php echo $row['username'];  ?>" value="<?php echo $row['username'];  ?>" >
-<label for="<?php echo $row['username'];  ?>"><?php echo $row['username'];  ?></label>
+<input type="radio" name="to_user" id="<?php echo $row1['username'];  ?>" value="<?php echo $row1['username'];  ?>" >
+<label for="<?php echo $row1['username'];  ?>"><?php echo $row1['username'];  ?></label>
 <br>
 <br>
 <?php
