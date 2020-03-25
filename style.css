@@ -1,0 +1,125 @@
+.sidenav {
+    height: 100%; /* Full-height: remove this if you want "auto" height */
+    width: 350px; /* Set the width of the sidebar */
+    position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+    z-index: 1; /* Stay on top */
+    top: 0; /* Stay at the top */
+    left: 0;
+    background-color: teal; /* Black */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    padding-top: 20px;
+    
+    display: block;
+    color: white;
+    font-family: monospace;
+  }
+  .sidenav a {
+  
+    text-decoration: none;
+    font-size: 25px;
+    color: black;
+    display: block;
+    text-align: center;
+  }
+  .sidenav h1{
+    
+      text-align: center;
+  }
+  
+  .main {
+      margin-top: 0;
+    background-color: skyblue;
+    margin-left: 350px; /* Same as the width of the sidebar */
+   height: 800px;
+   padding: 20px;
+  }
+  img{
+      border-radius: 50%;
+      margin-left: 100px;
+  }
+p.n{
+    font-size: 20px;
+    margin-left: 20px;
+    color: black;
+}
+button {
+     
+    
+    
+    padding: 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    background-color: skyblue;
+    color: black;
+    border: 2px solid red;
+    width: 150px;
+  } 
+
+  [type="radio"]:checked,
+  [type="radio"]:not(:checked) {
+      position: absolute;
+      left: -9999px;
+  }
+  [type="radio"]:checked + label,
+  [type="radio"]:not(:checked) + label
+  {
+      position: relative;
+      padding-left: 28px;
+      cursor: pointer;
+      line-height: 20px;
+      display: inline-block;
+      color: black;
+      font-family: monospace;
+      font-size: 20px;
+  }
+  [type="radio"]:checked + label:before,
+  [type="radio"]:not(:checked) + label:before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      width: 18px;
+      height: 18px;
+      border: 1px solid #ddd;
+      border-radius: 100%;
+      background: #fff;
+  }
+  [type="radio"]:checked + label:after,
+  [type="radio"]:not(:checked) + label:after {
+      content: '';
+      width: 12px;
+      height: 12px;
+      background: #F87DA9;
+      position: absolute;
+      top: 4px;
+      left: 4px;
+      border-radius: 100%;
+      -webkit-transition: all 0.2s ease;
+      transition: all 0.2s ease;
+    
+  }
+  [type="radio"]:not(:checked) + label:after {
+      opacity: 0;
+      -webkit-transform: scale(0);
+      transform: scale(0);
+  }
+  [type="radio"]:checked + label:after {
+      opacity: 1;
+      -webkit-transform: scale(1);
+      transform: scale(1);
+  }
+  h1{
+      font-family: monospace;
+  }
+  .btn-chat{
+
+width: 100px;
+background-color: crimson;
+font-family: monospace;
+padding: 3px;
+font-size: 20px;
+
+
+  }
