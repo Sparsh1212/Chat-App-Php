@@ -67,7 +67,7 @@ session_start();
     
     <script>
        $(document).ready(function(){
-     $('#username').blur(function(){
+     $('#username').keyup(function(){
      
     var username=$(this).val();
     // Ajax request to server
