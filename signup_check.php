@@ -36,7 +36,6 @@ $gender=$_POST['gender'];
  $emailregx="/^([a-zA-Z0-9_]{2,})@([a-zA-Z]{2,})\.([a-zA-Z]{2,})(\.[a-z]{2,}){0,}$/";
  $phoneregx="/^[6-9]{1}[0-9]{9}$/";
  $passwordregx="/^[a-zA-Z0-9_@\.]{9,}$/";
- $genderregx="/^[a-zA-Z]{1,}$/";
 
 
 // Server side validation 
@@ -72,12 +71,6 @@ if($password==$confirmPassword){
     $_SESSION['hack']="Your hacking attempt was unsuccessful";
 header("Location: signup.php");
 }
-if(preg_match($genderregx,$gender)){
-}else
-{
-    $_SESSION['hack']="Your hacking attempt was unsuccessful";
-header("Location: signup.php");
-}
 
 
 // Preparing data to be inserted to database
@@ -101,14 +94,14 @@ $password=password_hash($password,PASSWORD_BCRYPT);
 
 // MySql query 
 
-$q="insert into `sparsh_users`(`username`,`email`,`password`,`phone`,`gender`) values('$username','$email','$password',$phoneNumber,'$gender')   ;";
+$q="insert into sparsh_users(username,email,password,phone,gender) values('$username','$email','$password',$phoneNumber,'$gender')   ;";
 $res=mysqli_query($conn,$q);
 
 // Redirection to another page based on query result
 if($res){
     header("Location: login.php");
 }else
-{ 
+{
     header("Location: signup.php");
     $_SESSION['hack']="Sorry something went wrong, please try again !!";
 }
