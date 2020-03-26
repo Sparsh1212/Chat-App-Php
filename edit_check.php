@@ -24,7 +24,7 @@ $type=$image['type'];
 $emailregx="/^([a-zA-Z0-9_]{2,})@([a-zA-Z]{2,})\.([a-zA-Z]{2,})(\.[a-z]{2,}){0,}$/";
 $phoneregx="/^[6-9]{1}[0-9]{9}$/";
 $passwordregx="/^[a-zA-Z0-9_@\.]{9,}$/";
-$genderregx="/^[a-zA-Z]{1,}$/";
+
 
 // Server side validation of info with regex 
 if(preg_match($emailregx,$email)){
@@ -48,11 +48,7 @@ if($password==$confirmPassword){
 {
     header("Location: edit.php");
 }
-if(preg_match($genderregx,$gender)){
-}else
-{
-    header("Location: edit.php");
-}
+
 
 // Image type check
 if($type=="image/jpeg"||$type=="image/png"||$type=="image/jpg")

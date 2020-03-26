@@ -15,6 +15,7 @@ if(isset($_SESSION['username']))
     include "header.php";
     ?>
     <title>Edit Profile</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9"></script>
 </head>
 <body>
 <!-- User current profile info-->
@@ -37,27 +38,28 @@ if(isset($_SESSION['username']))
     <div class="form-group">
     <label for="email">Email</label>
     <input class="form-control" id="email" name="email" type="email" required value="<?php echo $row['email'];  ?>" placeholder="Email">
-    <span class="text-danger font-weight-bold" id="email-error"></span>
+  
     </div>
     <div class="form-group">
     <label for="phone-number">Phone No.</label>
     <input class="form-control" id="phone-number" name="phone-number" type="number" required value="<?php echo $row['phone'];  ?>" placeholder="Phone No.">
-    <span class="text-danger font-weight-bold" id="phone-number-error"></span>
+   
     </div>
     <div class="form-group">
     <label for="password">Password</label>
     <input class="form-control" id="password" name="password" type="password" required placeholder="Password" >
-    <span class="text-danger font-weight-bold" id="password-error"></span>
+   
     </div>
     <div class="form-group">
     <label for="confirm-password">Confirm Password</label>
     <input class="form-control" id="confirm-password" name="confirm-password" type="password" required placeholder="Confirm Password" >
-    <span class="text-danger font-weight-bold" id="confirm-password-error"></span>
+  
     </div>
     <div class="form-group">
-    <label for="gender">Gender</label>
-    <input class="form-control" id="gender" type="text" name="gender" required value="<?php echo $row['gender'];  ?>"  placeholder="Gender: Male|Female|Others">
-    <span class="text-danger font-weight-bold" id="gender-error"></span>
+    <input type="radio" checked name="gender" value="Male" id="Male"><label for="Male">Male</label>
+    <input type="radio" name="gender" value="Female" id="Female"><label for="Female">Female</label>
+    <input type="radio" name="gender" value="Others" id="Others"><label for="Others">Others</label>
+ 
     </div>
     <input class="btn btn-outline-primary   btn-lg" id="save-btn" name="save-btn"  type="submit" value="Save Changes"> 
     <br><br>
@@ -73,7 +75,7 @@ if(isset($_SESSION['username']))
         var phoneNo=document.getElementById('phone-number').value;
         var password=document.getElementById('password').value;
         var confirmPassword=document.getElementById('confirm-password').value;
-        var gender=document.getElementById('gender').value;
+        
         
         
         // Defining the regex for all the input fields
@@ -81,52 +83,67 @@ if(isset($_SESSION['username']))
         var emailregx=/^([a-zA-Z0-9_]{2,})@([a-zA-Z]{2,})\.([a-zA-Z]{2,})(\.[a-z]{2,}){0,}$/;
         var phoneregx=/^[6-9]{1}[0-9]{9}$/;
         var passwordregx=/^[a-zA-Z0-9_@\.]{9,}$/;
-        var genderregx=/^[a-zA-Z]{1,}$/;
+       
         
         
         // Checking input with regx
         
         if(emailregx.test(email)){
-            document.getElementById('email-error').innerHTML="";
+          
         }
         else{
-            document.getElementById('email-error').innerHTML="Invalid email";
-            return false;
+            
+            //console.log("email is invalid");
+            Swal.fire({
+            icon: 'error',
+            title: 'Invalid Email',
+            text: 'Must be a valid email like: xyz@pqr.com or xyz@pqr.ac.in'
+             })
+             return false;
+           
+            
         }
         if(phoneregx.test(phoneNo)){
-            document.getElementById('phone-number-error').innerHTML="";
+           
         }
         else{
-            document.getElementById('phone-number-error').innerHTML="Invalid Phone Number";
+           
+            Swal.fire({
+            icon: 'error',
+            title: 'Invalid Phone no.',
+            text: 'Must start with 6/7/8/9 and should be of 10 digits'
+             })
             return false;
         }
         
         if(passwordregx.test(password)){
-            document.getElementById('password-error').innerHTML="";
+         
         }
         else{
-            document.getElementById('password-error').innerHTML="Invalid Password";
+            Swal.fire({
+            icon: 'error',
+            title: 'Invalid Password',
+            text: 'Must be of atleast 9 characters and should be alphanumeric with _/@/. as special characters'
+             })
+
+
             return false;
         }
         
         if(password==confirmPassword){
-            document.getElementById('confirm-password-error').innerHTML="";
+         
         }
         else{
-            document.getElementById('confirm-password-error').innerHTML="Passwords does not match";
+            
+            Swal.fire({
+            icon: 'error',
+            title: 'Passwords do not match',
+        
+             })
             return false;
         }
         
-        if(genderregx.test(gender)){
-            
-            document.getElementById('gender-error').innerHTML="";
-          //  console.log("All are successfull");
-            
-        }
-        else{
-            document.getElementById('gender-error').innerHTML="Invalid Gender Format";
-            return false;
-        }
+        
         
         }
         
