@@ -47,9 +47,9 @@ $row=mysqli_fetch_assoc($res);
 
 // Getting all users from database
 echo "<h1>Select User to Chat</h1>";
-$q1="select username from sparsh_users";
+$q1="select username from sparsh_users where username <> '$username' ;";
 $res1=mysqli_query($conn,$q1);
-//$row1=mysqli_fetch_assoc($res1);
+
 while($row1=mysqli_fetch_assoc($res1))
 {
  ?>   
