@@ -87,7 +87,7 @@ session_start();
 
         }else
         {
-        $('#availability').html('<span class="text-success font-weight-bold">Username  availiable</span>');
+            $('#availability').html('<span></span>')
         $('#signup-btn').attr("disabled",false);
         }
  }
